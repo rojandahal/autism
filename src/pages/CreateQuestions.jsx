@@ -15,8 +15,13 @@ function CreateQuestions() {
     // Create a new option object with text and whether it's the answer
     const newOptionObject = { text: newOption, isAnswer: newOption === answer };
 
-    // Add the new option object to the options array
-    setOptions([...options, newOptionObject]);
+    if (options.length === 4) {
+      alert("Can't add more than 4 options")
+    } else {
+
+      // Add the new option object to the options array
+      setOptions([...options, newOptionObject]);
+    }
 
     // Clear the input fields
     setNewOption("");
@@ -30,74 +35,97 @@ function CreateQuestions() {
   };
 
   return (
-    <div>
+    <div className="question-form">
+      <h2>Questionnare</h2>
       <form onSubmit={handleSubmit}>
-        <label>Question:</label>
-        <input
-          type='text'
-          value={question}
-          onChange={e => setQuestion(e.target.value)}
-        />
-
-        <label>Add Option:</label>
-        <input
-          type='text'
-          value={newOption}
-          onChange={e => setNewOption(e.target.value)}
-        />
-
-        <label>Answer:</label>
-        <select
-          value={answer}
-          onChange={e => setAnswer(e.target.value)}
-        >
-          {options.map((option, index) => (
-            <option
-              key={index}
-              value={option.text}
-            >
-              {option.text}
-            </option>
-          ))}
-        </select>
-
-        <label>Upload Image or Sound:</label>
-        <input
-          type='file'
-          onChange={handleFileChange}
-        />
-        <div>
-          <strong>Selected File:</strong>{" "}
-          {selectedFile ? selectedFile.name : "None"}
-        </div>
-
-        {/* Display preview if a file is selected */}
-        {previewUrl && (
+        <div className="grid-2">
           <div>
-            {selectedFile.type.startsWith("image") ? (
-              <img
-                src={previewUrl}
-                alt='Preview'
-								style={{ height: "100px" }}
-              />
-            ) : (
-              <audio controls>
-                <source src={previewUrl} />
-              </audio>
+            <label>Question:</label>
+            <input
+              type='text'
+              className="form-controller"
+              value={question}
+              onChange={e => setQuestion(e.target.value)}
+            />
+          </div>
+
+          <div>
+            <label>Add Option:</label>
+            <input
+              type='text'
+              className="form-controller"
+              value={newOption}
+              onChange={e => setNewOption(e.target.value)}
+            />
+          </div>
+
+        </div>
+        <div className="grid-2">
+          <div>
+            <label>Answer:</label>
+            <select
+              value={answer}
+              className="form-controller"
+              onChange={e => setAnswer(e.target.value)}
+            >
+              {options.map((option, index) => (
+                <option
+                  key={index}
+                  value={option.text}
+                >
+                  {option.text}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div>
+            <label>Upload Image or Sound:</label>
+            <input
+              type='file'
+              onChange={handleFileChange}
+            />
+            <div className="selected-file">
+              <strong>Selected File:</strong>{" "}
+              {selectedFile ? selectedFile.name : "None"}
+            </div>
+
+            {/* Display preview if a file is selected */}
+            {previewUrl && (
+              <div>
+                {selectedFile.type.startsWith("image") ? (
+                  <img
+                    src={previewUrl}
+                    alt='Preview'
+                    style={{ height: "100px" }}
+                  />
+                ) : (
+                  <audio controls>
+                    <source src={previewUrl} />
+
+                  </audio>
+                )}
+              </div>
             )}
           </div>
-        )}
 
-        <button type='submit'>Add</button>
+        </div>
+        <div className="btn-container">
+          <button type='submit' className="primary-btn">Add</button>
+        </div>
+
       </form>
-      <h2>Options:</h2>
-      <ul>
-        {options.map((option, index) => (
-          <li key={index}>
-            {option.text} {option.isAnswer ? "(Answer)" : ""}
-          </li>
-        ))}
-      </ul>
+      <div className="flex flex-1"> <h3>Question:</h3><p>{question}</p></div>
+      <div className="flex"><h3>Options:</h3>
+        <ul>
+          {options.map((option, index) => (
+            <li key={index}>
+              {option.text} {option.isAnswer ? "(Answer)" : ""}
+            </li>
+          ))}
+        </ul></div>
+      <div className="flex"><h3>Answer:</h3><p>{answer}</p></div>
+
     </div>
   );
 }

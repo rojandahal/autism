@@ -45,7 +45,7 @@ function App() {
 
     if (role === "student") {
       await axios
-        .get(`http://localhost:3000/api/v1/auth/me/${id}`)
+        .get(`http://192.168.18.10:3000/api/v1/auth/me/${id}`)
         .then(response => {
           console.log(response.data);
           setUserDetails(response.data);
@@ -55,7 +55,7 @@ function App() {
         });
     } else {
       await axios
-        .get(`http://localhost:3000/api/v1/teacher/getMe/${id}`)
+        .get(`http://192.168.18.10:3000/api/v1/teacher/getMe/${id}`)
         .then(response => {
           console.log(response.data);
           setUserDetails(response.data);

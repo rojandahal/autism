@@ -3,6 +3,7 @@ import loginBg from "../assets/login-bg.jpeg";
 import logoLogin from "../assets/logo-login.png";
 import axios from "axios";
 import Cookies from "js-cookie";
+import SignupPageStudent from "./SignupPageStudent";
 
 function LoginPage() {
   const [email, setEmail] = useState("");
@@ -31,7 +32,7 @@ function LoginPage() {
       : alert("Invalid email format must be nec.edu.np");
 
     axios
-      .post("http://localhost:3000/api/v1/auth/login", {
+      .post("http://192.168.18.10:3000/api/v1/auth/login", {
         email: email,
         password: password,
       })
@@ -105,7 +106,7 @@ function LoginPage() {
                   <div className='sign-up'>
                     <p>If you have not signed up yet</p>
                     <a
-                      href='signup.html'
+                      href="/signup-student"
                       className='primary-btn'
                     >
                       Sign Up

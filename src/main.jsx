@@ -8,6 +8,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import DashBoard from "./pages/DashBoard.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import CreateQuestions from "./pages/CreateQuestions.jsx";
+import SignupPageStudent from "./pages/SignupPageStudent.jsx";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <LoginPage />,
+  },
+  {
+    path: "/signup-student",
+    element: <SignupPageStudent />
   },
   {
     path: "/login-tutor",

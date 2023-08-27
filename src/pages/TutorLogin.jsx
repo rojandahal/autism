@@ -31,7 +31,7 @@ function TutorLogin() {
       : alert("Invalid email format must be nec.edu.np");
 
     axios
-      .post("http://localhost:3000/api/v1/teacher/login", {
+      .post("http://192.168.18.10:3000/api/v1/teacher/login", {
         email: email,
         password: password,
       })

@@ -1,0 +1,53 @@
+.question-form {
+    margin-top: 65px;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.grid-2 label {
+    padding-right: 20px;
+}
+
+select.form-controller {
+    width: 44%;
+    margin-left: 10px;
+}
+
+.selected-file {
+    margin-top: 15px;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-container .primary-btn {
+    padding: 15px 40px;
+}
+
+.flex-1 {
+    margin-top: 20px;
+}
+
+.flex {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    padding-left: 95px;
+}
+
+.flex ul {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    padding-left: 0;
+}
+
+h2 {
+    margin-bottom: 50px;
+}
