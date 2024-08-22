@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@videosdk.live/react-sdk": "^0.1.75",
-    "axios": "^1.4.0",
+    "axios": "^1.7.4",
     "js-cookie": "^3.0.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
